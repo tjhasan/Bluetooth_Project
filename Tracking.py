@@ -12,24 +12,24 @@
 
 import json
 
-with open('.\Capture_Files\\10-13-Test.json') as f:
+# This is my local json folder. You will need to adjust this to match your own file directory structure.
+with open('.\Capture_Files\\10-13-3_Hour_Test.json') as f:
     input = json.load(f)
 
-addr = "Advertising Address for D"
-A = [] #Identifying Tokens for D
+addr = "Advertising Address for Device"
+A = [] #Identifying Tokens for Device
+counter = 0
 
+#For some reason, beacon devices tend to make their way into the ADV_NONCONN_ID file filter, so I am double checking their exclusion.
 for entry in input: #Initialize values
     if 'beacon' not in entry['_source']['layers']: 
         addr = entry['_source']['layers']['btle']['btle.advertising_address']
+        #It's easier to remove the ':' from the hex values and save double the projected save bytes from the paper. (saving [-23:] bytes in the paper -> [-46])
         A.append(entry['_source']['layers']['btle']['btcommon.eir_ad.advertising_data']['btcommon.eir_ad.entry']['btcommon.eir_ad.entry.data'].replace(":",'')[-46:])
     break
 
-print("Start Address: ", addr)
-print("Start ID Tokens: ", A)
-print('')
-
 for entry in input: #Go through all JSON entries
-    if 'beacon' not in entry['_source']['layers']: #Ignoring beacon signals
+    if 'beacon' not in entry['_source']['layers'] and 'btmesh' not in entry['_source']['layers']: #Ignoring beacon signals
 
         #get the incoming address and identification token
         incomingAddr = entry['_source']['layers']['btle']['btle.advertising_address']
@@ -42,8 +42,5 @@ for entry in input: #Go through all JSON entries
         #If the incoming address is unknown, but uses an old token, then track the new address.
         else:
             if incomingID in A:
+                print("Changing ", addr, " -> ", incomingAddr)
                 addr = incomingAddr
-
-print("End Address: ", addr)
-print("End ID Tokens: ", A)
-print('')
