@@ -1,0 +1,7 @@
+Company ID = 6
+!malformed
+ad.entry.type == 0xff
+!ad.entry.type == 2
+!unused
+!scan_rsp
+!scan_req
