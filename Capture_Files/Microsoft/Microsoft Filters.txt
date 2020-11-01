@@ -1,7 +1,11 @@
 Company ID = 6
 !malformed
 ad.entry.type == 0xff
-!ad.entry.type == 2
 !unused
+!ad.entry.type == 4
+!ad.entry.type == 2
 !scan_rsp
 !scan_req
+!scan_ind
+
+btcommon.eir_ad.entry.company_id == 6 && !_ws.malformed && btcommon.eir_ad.entry.type == 0xff && !btcommon.eir_ad.unused && !btcommon.eir_ad.entry.type == 4 && !btcommon.eir_ad.entry.type == 2 && !btle.advertising_header.pdu_type == 0x4 && !btle.advertising_header.pdu_type == 6 && !btle.advertising_header.pdu_type == 3

@@ -2,7 +2,7 @@ import json
 from os import error
 
 # This is my local json folder. You will need to adjust this to match your own file directory structure.
-with open('.\Capture_Files\Microsoft\Cindy_Windows_Test.json') as f:
+with open('./Capture_Files/Microsoft/Test_file1.json') as f:
     input = json.load(f)
 
 addr = "Advertising Address for Device"
