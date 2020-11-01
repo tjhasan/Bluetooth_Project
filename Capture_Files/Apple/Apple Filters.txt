@@ -1,0 +1,8 @@
+Company ID = 76
+!malformed
+ad.entry.type == 0xff
+!ad.entry.type == 2
+!ad.entry.type == 20
+!unused
+!scan_rsp
+!scan_req
