@@ -24,11 +24,11 @@ for entry in input:  # Initialize values
 
         if len(temp) == 14:
             handoff = temp
-        elif len(temp) == 4:
+        elif len(temp) == 5:
             nearby = temp
         elif len(temp) == 19:
-            nearby = temp[:4]
-            handoff = temp[4:]
+            nearby = temp[:5]
+            handoff = temp[5:]
         A_nearby.append(nearby)
         A_handoff.append(handoff)
     break
@@ -40,15 +40,15 @@ for entry in input:
             incomingAddr = entry['_source']['layers']['btle']['btle.advertising_address']
             temp = entry['_source']['layers']['btle']['btcommon.eir_ad.advertising_data'][
                 'btcommon.eir_ad.entry']['btcommon.eir_ad.entry.data'].replace(":", '')
-        except:
+        except KeyError:
             print(counter)
         if len(temp) == 14:
             handoff = temp
-        elif len(temp) == 4:
+        elif len(temp) == 5:
             nearby = temp
         elif len(temp) == 19:
-            nearby = temp[:4]
-            handoff = temp[4:]
+            nearby = temp[:5]
+            handoff = temp[5:]
 
         if incomingAddr == addr:
             if nearby not in A_nearby:
