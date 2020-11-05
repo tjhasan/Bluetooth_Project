@@ -2,7 +2,7 @@ import json
 from os import error
 from typing import cast
 
-with open('./Capture_Files/Apple/Cindy_Apple_Airpods.json', encoding='ISO-8859-1') as f:
+with open('./Capture_Files/Bose/Cindy_Headphones.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 counter = 0
@@ -17,3 +17,4 @@ for entry in input:
         except KeyError:
             print("Error occured at packet: ", counter)
         counter += 1
+        print(incomingAddr, "------->", temp)

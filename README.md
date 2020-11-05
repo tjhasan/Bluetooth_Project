@@ -16,4 +16,5 @@ This script will attempt to follow MAC Addresses from Sgl Italia Srl, which is u
 This script will attempt to follow MAC Addresses from Windows 10 devices
 
 ## JSON Tester
-This script will make sure that the given JSON file does not throw errors in any of the tracking scripts.  
+This script will make sure that the given JSON file does not throw errors in any of the tracking scripts.
+This script will also tell you which datapoint within the JSON file is giving the error to help mitigate it. 

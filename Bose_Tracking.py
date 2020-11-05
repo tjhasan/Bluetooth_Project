@@ -2,7 +2,7 @@ import json
 from os import error
 from typing import cast
 
-with open('./Capture_Files/Bose/2020-10-29-Bose-Speaker.json') as f:
+with open('./Capture_Files/Bose/Cindy_Headphones.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 addr = "Advertising Address for Device"
@@ -40,3 +40,4 @@ for entry in input:
                 addr = incomingAddr
         counter += 1
         # print(counter)
+print(A)
