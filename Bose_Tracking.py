@@ -6,6 +6,7 @@ with open('./Capture_Files/Bose/2020-10-29-Bose-Speaker.json') as f:
     input = json.load(f)
 
 addr = "Advertising Address for Device"
+Followed_Addrs = []
 A = []  # Identifying Tokens for Device
 counter = 0
 
@@ -14,10 +15,9 @@ for entry in input:  # Initialize values
         addr = entry['_source']['layers']['btle']['btle.advertising_address']
         A.append(entry['_source']['layers']['btle']['btcommon.eir_ad.advertising_data'][
             'btcommon.eir_ad.entry']['btcommon.eir_ad.entry.data'].replace(":", '')[-8:])
+        Followed_Addrs.append(addr)
     break
 
-# print("Starting Address: ", addr)
-# print("Keys: ", A)
 for entry in input:
     # Ignoring beacon signals
     if 'beacon' not in entry['_source']['layers'] and 'btmesh' not in entry['_source']['layers']:
@@ -35,11 +35,8 @@ for entry in input:
                 A.append(incomingID)
         # If the incoming address is unknown, but uses an old token, then track the new address.
         else:
-            if incomingID in A:
+            if incomingID in A and incomingAddr not in Followed_Addrs:
                 print("Changing ", addr, " -> ", incomingAddr)
                 addr = incomingAddr
         counter += 1
         # print(counter)
-
-# print("Ending Address: ", addr)
-# print("Keys: ", A)
