@@ -3,6 +3,12 @@ Company ID = 76
 ad.entry.type == 0xff
 !ad.entry.type == 2
 !ad.entry.type == 20
-!unused
-!scan_rsp
-!scan_req
+!ad.entry.type == 0x2b
+!ad.entry.type == 41
+!ad.entry.type == 5
+!pdu.header == 6
+!pdu.header == 0x2
+!pdu.header == 0x4
+
+Seems that many Apple devices have a similar structure for data: '100 [variable] 1 [variable]'. Requires further research. 
+The variables could possibly be used as identity tokens.

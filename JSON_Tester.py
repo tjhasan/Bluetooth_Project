@@ -2,14 +2,9 @@ import json
 from os import error
 from typing import cast
 
-with open('./Capture_Files/Apple/Cindy_Test.json') as f:
+with open('./Capture_Files/Apple/Cindy_Apple_Airpods.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
-A_nearby = []  # Identifying Tokens for Device
-A_handoff = []
-Followed_Addrs = []
-nearby = ''
-handoff = ''
 counter = 0
 
 for entry in input:
