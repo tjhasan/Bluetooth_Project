@@ -1,2 +1,4 @@
 Company ID = 784
 !malformed
+
+btcommon.eir_ad.entry.company_id == 784 && !_ws.malformed

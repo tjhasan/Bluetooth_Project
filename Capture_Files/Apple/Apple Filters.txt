@@ -10,5 +10,7 @@ ad.entry.type == 0xff
 !pdu.header == 0x2
 !pdu.header == 0x4
 
+btcommon.eir_ad.entry.company_id == 76 && !_ws.malformed && btcommon.eir_ad.entry.type == 0xff && btcommon.eir_ad.entry.type == 0x0a && !btcommon.eir_ad.entry.type == 2 && !btcommon.eir_ad.entry.type == 20 && !btcommon.eir_ad.entry.type == 0x2b && !btcommon.eir_ad.entry.type == 41 && !btcommon.eir_ad.entry.type == 5 && !btle.advertising_header.pdu_type == 6 && !btle.advertising_header.pdu_type == 2 && !btle.advertising_header.pdu_type == 0x4
+
 Seems that many Apple devices have a similar structure for data: '100 [variable] 1 [variable]'. Requires further research. 
 The variables could possibly be used as identity tokens.
