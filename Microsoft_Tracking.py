@@ -18,8 +18,7 @@ for entry in input:  # Initialize values
                  ['btcommon.eir_ad.entry']['btcommon.eir_ad.entry.data'].replace(":", '')[-46:])
     break
 
-# print("Starting Address: ", addr)
-# print("Keys: ", A)
+
 for entry in input:  # Go through all JSON entries
     # Ignoring beacon signals
     if 'beacon' not in entry['_source']['layers'] and 'btmesh' not in entry['_source']['layers']:
@@ -41,6 +40,3 @@ for entry in input:  # Go through all JSON entries
                 addr = incomingAddr
         counter += 1
         # print(counter)
-
-# print("Ending Address: ", addr)
-# print("Keys: ", A)
