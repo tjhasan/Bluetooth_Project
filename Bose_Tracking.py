@@ -2,7 +2,7 @@ import json
 from os import error
 from typing import cast
 
-with open('./Capture_Files/Bose/Cindy_Headphones_Confirmation.json', encoding='ISO-8859-1') as f:
+with open('./Capture_Files/Fitbit/2020-12-23-Fitbit-Cindy.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 addr = "Advertising Address for Device"
