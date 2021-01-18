@@ -2,10 +2,12 @@ import json
 from os import error
 from typing import cast
 
-with open('./Capture_Files/Bose/Cindy_Headphones_Confirmation.json', encoding='ISO-8859-1') as f:
+with open('./Capture_Files/Sony/SonyUUIDDataTest.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 counter = 0
+
+temp = ''
 
 for entry in input:
     if 'beacon' not in entry['_source']['layers'] and 'btmesh' not in entry['_source']['layers']:
@@ -17,4 +19,4 @@ for entry in input:
         except KeyError:
             print("Error occured at packet: ", counter)
         counter += 1
-        print(incomingAddr, "------->", temp, " # of Bytes: ", len(temp))
+        print(incomingAddr, "------->", temp)

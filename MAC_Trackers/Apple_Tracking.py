@@ -3,7 +3,7 @@ from os import error
 from typing import cast
 
 # This is my local json folder. You will need to adjust this to match your own file directory structure.
-with open('./Capture_Files/Apple/Cindy_Apple_Airpods.json', encoding='ISO-8859-1') as f:
+with open('./Capture_Files/Apple/Tate_Apple_Devices.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 addr = "Advertising Address for Device"
