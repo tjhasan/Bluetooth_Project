@@ -3,7 +3,7 @@ from os import error
 from typing import cast
 
 # This is my local json folder. You will need to adjust this to match your own file directory structure.
-with open('./Capture_Files/Garmin/Apple/Control/JSON/CNTROL_JSON_10.json', encoding='ISO-8859-1') as f:
+with open('./Capture_Files/Garmin/Apple/Walking/JSON/WALK_JSON_10.json', encoding='ISO-8859-1') as f:
     input = json.load(f)
 
 total_length = 0
