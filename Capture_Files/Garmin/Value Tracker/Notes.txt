@@ -1,0 +1,5 @@
+[1,10] -> Control JSON
+[11, 20] -> Resting JSON
+[21, 30] -> Running JSON
+[31, 40] -> Walking JSON
+
